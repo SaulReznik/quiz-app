@@ -5,7 +5,7 @@ export default class App extends React.Component{
   render(){
     return (
       <div className="App">
-        <p>asdadadas</p>
+        <p>SaulReznik</p>
       </div>
     );
   }

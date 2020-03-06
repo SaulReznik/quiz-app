@@ -4,7 +4,7 @@ function Header(props) {
     return (
         <div className="Header">
             <button>Start game</button>
-            <span>qwerty</span>
+            <span>qyartu</span>
         </div>
     )
 }

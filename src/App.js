@@ -8,7 +8,7 @@ import Header from "./components/Header";
 import Game from './components/Game';
 
 function getRandomArbitrary(min, max) {
-  return Math.floor(Math.random() * (max - min) + min;
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 export default class App extends React.Component{

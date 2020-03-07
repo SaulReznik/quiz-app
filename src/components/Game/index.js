@@ -1,19 +1,20 @@
 import React from 'react';
 
 import Screen from '../Screen';
-import Option from "../Option";
 
 const Game = props => {
     return (
-        <div>
-           <Screen />
+        <div id='game-container'>
+            <div id='game-wrapper'>
+                <Screen />
 
-           <div id='options-container'>
-                <Option />
-                <Option />
-                <Option />
-                <Option />
-           </div>
+                <div id='options-container'>
+                    <button className='option-btn'>Option</button>
+                    <button className='option-btn'>Option</button>
+                    <button className='option-btn'>Option</button>
+                    <button className='option-btn'>Option</button>
+                </div>
+            </div>
         </div>
     );
 }

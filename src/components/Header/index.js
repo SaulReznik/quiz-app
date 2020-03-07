@@ -2,10 +2,10 @@ import React from 'react';
 
 function Header(props) {
     return (
-        <div className="Header">
-            <button>Start game</button>
-            <span>qyartu</span>
-        </div>
+        <header>
+            <button id='start-game-btn'>Start game</button>
+            <span id='question-amount'>5/10</span>
+        </header>
     )
 }
 

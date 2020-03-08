@@ -13,6 +13,7 @@ function getRandomArbitrary(min, max) {
 
 export default class App extends React.Component{
   state = {
+    questionCount: 0,
     question: null,
   };
 
@@ -25,11 +26,21 @@ export default class App extends React.Component{
     });
   }
 
+  optionClick = () => {
+    this.setState(prevState => {
+      return {
+        questionCount: prevState.questionCount + 1
+      }
+    })
+  }
+
   render(){
+    const { questionCount } = this.state;
+
     return (
       <div className="App">
-        <Header />
-        <Game />
+        <Header questionCount={questionCount}/>
+        <Game optionClick={this.optionClick}/>
       </div>
     );
   }

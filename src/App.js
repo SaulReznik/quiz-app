@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import questions from './data';
+import questions from './data.json';
 
 import Header from "./components/Header";
 
@@ -13,17 +13,24 @@ function getRandomArbitrary(min, max) {
 
 export default class App extends React.Component{
   state = {
-    questionCount: 0,
-    question: null,
+    questionCount: 0,                //Total question counter for determine when to end the game
+    rightAnswers: 0,                 //Right answer counter for result
+    question: null,                  //Single question, it will updates after clicking the option button
   };
 
   componentDidMount(){
-    console.log(questions);
     let index = getRandomArbitrary(0, questions.length-1);
 
     this.setState({
       question: questions[index],
     });
+  }
+
+  startButton = () => {
+    this.setState({
+      questionCount: 0,
+      tightAnswers: 0,
+    })
   }
 
   optionClick = () => {
@@ -39,8 +46,13 @@ export default class App extends React.Component{
 
     return (
       <div className="App">
-        <Header questionCount={questionCount}/>
-        <Game optionClick={this.optionClick}/>
+        <Header 
+          questionCount={questionCount}
+          startButton={this.startButton}
+        />
+        <Game 
+          optionClick={this.optionClick}
+        />
       </div>
     );
   }

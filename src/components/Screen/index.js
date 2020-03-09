@@ -1,9 +1,11 @@
 import React from 'react';
 
 const Screen = props => {
+    const {question} = props;
+    console.log(typeof question.question);
     return (
         <div id='screen-container'>
-            <span>Question</span>
+            <span>{question.question}</span>
         </div>
     )
 }

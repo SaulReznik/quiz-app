@@ -42,7 +42,7 @@ export default class App extends React.Component{
   }
 
   render(){
-    const { questionCount } = this.state;
+    const { questionCount , question} = this.state;
 
     return (
       <div className="App">
@@ -52,6 +52,7 @@ export default class App extends React.Component{
         />
         <Game 
           optionClick={this.optionClick}
+          question={question}
         />
       </div>
     );

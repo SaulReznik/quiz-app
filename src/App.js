@@ -11,8 +11,11 @@ function getRandomArbitrary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
+const loading = <h1>Loading</h1>;
+
 export default class App extends React.Component{
   state = {
+    isLoading: true,
     questionCount: 0,                //Total question counter for determine when to end the game
     rightAnswers: 0,                 //Right answer counter for result
     question: null,                  //Single question, it will updates after clicking the option button
@@ -23,6 +26,7 @@ export default class App extends React.Component{
 
     this.setState({
       question: questions[index],
+      isLoading: false
     });
   }
 
@@ -33,18 +37,20 @@ export default class App extends React.Component{
     })
   }
 
-  optionClick = () => {
+  optionClick = (isCorrect) => {
+    
     this.setState(prevState => {
       return {
+        rightAnswers: prevState.rightAnswers += isCorrect,
         questionCount: prevState.questionCount + 1
       }
     })
   }
 
   render(){
-    const { questionCount , question} = this.state;
-
-    return (
+    const { isLoading, questionCount , question} = this.state;
+    
+    return isLoading ? loading : (
       <div className="App">
         <Header 
           questionCount={questionCount}

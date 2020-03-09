@@ -12,10 +12,18 @@ const Game = props => {
                 <Screen question={question} />
 
                 <div id='options-container'>
-                    <button onClick={optionClick} className='option-btn'>Option</button>
-                    <button onClick={optionClick} className='option-btn'>Option</button>
-                    <button onClick={optionClick} className='option-btn'>Option</button>
-                    <button onClick={optionClick} className='option-btn'>Option</button>
+                    {
+                        question.options.map((item, index) => {
+                            const { text, isCorrect } = item;
+                            return <button
+                                key={index}
+                                onClick={() => optionClick(isCorrect)} 
+                                className='option-btn'
+                            >
+                                {text}
+                            </button>
+                        })
+                    }
                 </div>
             </div>
         </div>

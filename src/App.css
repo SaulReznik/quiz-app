@@ -45,11 +45,12 @@ header {
 
 #game-wrapper {
   border: 1px solid black;
+  border-radius: 15px;
 }
 
 #options-container {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 50% 50%;
 }
 
 /*------------------Screen-----------------*/
@@ -57,8 +58,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 200px;
-  width: 500px;
+  height: 300px;
+  width: 800px;
 }
 
 /*-------------------Option--------------*/
@@ -67,10 +68,18 @@ header {
 }
 
 .option-btn {
-  height: 50px;
+  height: 100px;
   width: 100%;
   background: none;
   border: 1px solid black;
   font-size: 20px;
   font-weight: 500;
+}
+
+.red-background {
+  background-color: rgb(255, 0, 51)
+}
+
+.green-background {
+  background-color: rgba(15, 196, 15);
 }

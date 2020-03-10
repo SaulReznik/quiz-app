@@ -15,6 +15,7 @@ const loading = <h1>Loading</h1>;
 
 export default class App extends React.Component{
   state = {
+    lastIndex: [],
     isLoading: true,
     questionCount: 0,                //Total question counter for determine when to end the game
     rightAnswers: 0,                 //Right answer counter for result
@@ -38,13 +39,31 @@ export default class App extends React.Component{
   }
 
   optionClick = (isCorrect) => {
-    
+    const {lastIndex} = this.state;
+    let index = getRandomArbitrary(0, questions.length-1);
+    while(lastIndex.includes(index)){
+         index = getRandomArbitrary(0, questions.length-1);
+    }
+
     this.setState(prevState => {
       return {
+        question: questions[index],
+        lastIndex: [...prevState.lastIndex,index],
         rightAnswers: prevState.rightAnswers += isCorrect,
         questionCount: prevState.questionCount + 1
       }
     })
+  }
+
+  restartGame = () => {
+      let index = getRandomArbitrary(0, questions.length-1);
+      this.setState({
+        lastIndex: [],
+        isLoading: false,
+        questionCount: 0,                
+        rightAnswers: 0,                 
+        question: questions[index],
+      })
   }
 
   render(){
@@ -62,6 +81,8 @@ export default class App extends React.Component{
           question={question}
         /> 
       </div>
-      ) : <Popup rightAnswers={rightAnswers}/>
+      ) : <Popup rightAnswers={rightAnswers}
+                 restartGame={this.restartGame}
+      />
   }
 }

@@ -48,7 +48,7 @@ export default class App extends React.Component{
   }
 
   render(){
-    const { isLoading, questionCount , question} = this.state;
+    const { rightAnswers, isLoading, questionCount , question} = this.state;
     
     return isLoading ? loading : 
       questionCount < 10 ? (
@@ -57,12 +57,11 @@ export default class App extends React.Component{
           questionCount={questionCount}
           startButton={this.startButton}
         />
-        <Game 
+        <Game
           optionClick={this.optionClick}
           question={question}
         /> 
       </div>
-      ) : <Popup />
+      ) : <Popup rightAnswers={rightAnswers}/>
   }
 }
-

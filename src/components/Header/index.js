@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header(props) {
+const Header = props => {
     const { questionCount } = props;
     return (
         <header>

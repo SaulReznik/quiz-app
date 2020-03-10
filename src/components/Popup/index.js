@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Popup(props){
+const Popup = props => {
     const { rightAnswers, restartGame } = props;
 
     return (
@@ -12,3 +12,5 @@ export default function Popup(props){
         </div>
     );  
 }
+
+export default Popup;

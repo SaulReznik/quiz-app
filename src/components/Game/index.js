@@ -15,6 +15,7 @@ const Game = props => {
                     {
                         question.options.map((item, index) => {
                             const { text, isCorrect } = item;
+                            
                             return <button
                                 key={index}
                                 onClick={() => optionClick(isCorrect)} 

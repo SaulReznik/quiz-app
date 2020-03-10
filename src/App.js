@@ -4,8 +4,8 @@ import './App.css';
 import questions from './data.json';
 
 import Header from "./components/Header";
-
 import Game from './components/Game';
+import Popup from './components/Popup';
 
 function getRandomArbitrary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
@@ -50,7 +50,8 @@ export default class App extends React.Component{
   render(){
     const { isLoading, questionCount , question} = this.state;
     
-    return isLoading ? loading : (
+    return isLoading ? loading : 
+      questionCount < 10 ? (
       <div className="App">
         <Header 
           questionCount={questionCount}
@@ -59,9 +60,9 @@ export default class App extends React.Component{
         <Game 
           optionClick={this.optionClick}
           question={question}
-        />
+        /> 
       </div>
-    );
+      ) : <Popup />
   }
 }
 

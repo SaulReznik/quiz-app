@@ -23,10 +23,28 @@ function shuffle(array) {
     return array;
 }
 
-const Game = props => {
-    const {question, optionClick } = props;
+let clickedButtonIndex;
+
+const Game = props =>{
+    const { question } = props;
     let shuffled = shuffle(question.options);
-    console.log(question);
+
+    const changeColor = (isCorrect, index) => {
+        clickedButtonIndex = index;
+        let el = document.getElementById(`btn${index}`);
+
+        if (isCorrect) {
+            el.classList.add('green-background');
+        } else {
+            el.classList.add('red-background');
+        }
+
+        setTimeout(() => {
+            clickedButtonIndex = null;
+            el.classList.remove(isCorrect ? 'green-background' : 'red-background')
+            props.optionClick(isCorrect);
+        }, 500);
+    }
 
     return (
         <div id='game-container'>
@@ -39,8 +57,9 @@ const Game = props => {
                             const { text, isCorrect } = item;
 
                             return <button
+                                id={`btn${index}`}
                                 key={index}
-                                onClick={() => optionClick(isCorrect)} 
+                                onClick={() => changeColor(isCorrect, index)}
                                 className='option-btn'
                             >
                                 {text}
@@ -50,7 +69,7 @@ const Game = props => {
                 </div>
             </div>
         </div>
-    );
+    ); 
 }
 
 export default Game;

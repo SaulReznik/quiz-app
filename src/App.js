@@ -15,7 +15,7 @@ const loading = <h1>Loading</h1>;
 
 export default class App extends React.Component{
   state = {
-    lastIndexes: [],
+    lastIndexes: [getRandomArbitrary(0, questions.length-1)],
     isLoading: true,
     questionCount: 0,                //Total question counter for determine when to end the game
     rightAnswers: 0,                 //Right answer counter for result
@@ -60,7 +60,7 @@ export default class App extends React.Component{
       let index = getRandomArbitrary(0, questions.length-1);
 
       this.setState({
-        lastIndexes: [],
+        lastIndexes: [getRandomArbitrary(0, questions.length-1)],
         questionCount: 0,                
         rightAnswers: 0,                 
         question: questions[index],

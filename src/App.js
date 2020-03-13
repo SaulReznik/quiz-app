@@ -3,7 +3,6 @@ import './App.css';
 
 import questions from './data.json';
 
-import Header from "./components/Header";
 import Game from './components/Game';
 import Popup from './components/Popup';
 
@@ -15,13 +14,16 @@ const loading = <h1>Loading</h1>;
 
 export default class App extends React.Component{
   state = {
-    lastIndexes: [getRandomArbitrary(0, questions.length-1)],
-    isLoading: true,
-    questionCount: 0,                //Total question counter for determine when to end the game
-    rightAnswers: 0,                 //Right answer counter for result
-    question: null,                  //Single question, it will updates after clicking the option button
+    lastIndexes: [getRandomArbitrary(0, questions.length-1)],      //Indexes of already asked questions
+    isLoading: true,                                               //The Loading flag
+    questionCount: 0,                                              //Total question counter for determine when to end the game
+    rightAnswers: 0,                                               //Right answer counter for result
+    question: null,                                                //Single question, it will updates after clicking the option button
   };
 
+  //-------------------Lifecycles--------------------//
+
+  //Initialaising the state
   componentDidMount(){
     let index = getRandomArbitrary(0, questions.length-1);
 
@@ -31,17 +33,13 @@ export default class App extends React.Component{
     });
   }
 
-  startButton = () => {
-    this.setState({
-      questionCount: 0,
-      tightAnswers: 0,
-    })
-  }
+  //--------------------Handlers---------------------//
 
   optionClick = (isCorrect) => {
     const {lastIndexes} = this.state;
     let index = getRandomArbitrary(0, questions.length-1);
     
+    //Finding a question that was never asked before
     while(lastIndexes.includes(index)){
          index = getRandomArbitrary(0, questions.length-1);
     }
@@ -49,9 +47,9 @@ export default class App extends React.Component{
     this.setState(prevState => {
       return {
         question: questions[index],
-        lastIndexes: [...prevState.lastIndexes, index],
-        rightAnswers: prevState.rightAnswers += isCorrect,
-        questionCount: prevState.questionCount + 1
+        lastIndexes: [...prevState.lastIndexes, index],     //Filling the asked question
+        rightAnswers: prevState.rightAnswers += isCorrect,  //If the answer was correct it will increase the right answers amount by one
+        questionCount: prevState.questionCount + 1          //Just counting the asked questions amount
       }
     })
   }
@@ -70,13 +68,14 @@ export default class App extends React.Component{
   render(){
     const { rightAnswers, isLoading, questionCount , question} = this.state;
     
-    return isLoading ? loading : 
-      questionCount < 10 ? (
+    //If theres no data show the Loading stuff
+    //If we have the data show the quiz
+    //And if the amount of asked questions is reached the 10 the show the popup
+    return isLoading ? loading : questionCount < 10 ? (
       <div className="App">
-        <Header 
-          questionCount={questionCount}
-          startButton={this.startButton}
-        />
+        <header>
+          <span id='question-amount'>{questionCount}/10</span>
+        </header>
         <Game
           optionClick={this.optionClick}
           question={question}

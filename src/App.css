@@ -1,6 +1,14 @@
 /*-----------------Common Styles---------*/
+button {
+  outline: none;
+}
 button:hover {
   cursor: pointer;
+}
+
+.flexy-stuff {
+  display: flex;
+  justify-content: space-around;
 }
 
 /*------------------App--------------*/
@@ -8,29 +16,12 @@ button:hover {
   text-align: center;
 }
 
-/*----------------Header------------*/
 header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
   height: 50px;
-  border: 1px solid black;
-}
-
-#start-game-btn {
-  height: 30px;
-  width: 150px;
-  margin: 0 0 0 20px;
-  background-color: red;
-  border: none;
-  border-radius: 7px;
-  font-size: 20px;
-  font-weight: 600;
-}
-
-#start-game-btn:active {
-  background-color: rgb(247, 88, 48);
 }
 
 /*-------------------Game----------------*/
@@ -48,11 +39,6 @@ header {
   border-radius: 15px;
 }
 
-#options-container {
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
-
 /*------------------Screen-----------------*/
 #screen-container {
   display: flex;
@@ -63,8 +49,11 @@ header {
 }
 
 /*-------------------Option--------------*/
-#option-container {
-  border: 1px solid black;
+#options-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 5px 5px;
+  padding: 10px 10px 5px 5px;
 }
 
 .option-btn {
@@ -72,17 +61,20 @@ header {
   width: 100%;
   background: none;
   border: 1px solid black;
+  border-radius: 10px;
   font-size: 20px;
   font-weight: 500;
 }
 
 .red-background {
-  background-color: rgb(255, 0, 51)
+  background-color: rgb(255, 99, 71);
 }
 
 .green-background {
-  background-color: rgba(15, 196, 15);
+  background-color: rgb(50, 205, 50);
 }
+
+/*-----------------------Popup--------------------*/
 
 .popup-container {
   width: 100%;
@@ -95,6 +87,11 @@ header {
 }
 
 .popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   background:#e1e1e1; 
   margin: 0 auto;
   width: 300px; 
@@ -105,7 +102,12 @@ header {
   box-shadow:0 0 10px rgba(0,0,0,0.4);
 }
 
-.flexy-stuff {
-  display: flex;
-  justify-content: space-around
+#restart-btn {
+  height: 40px;
+  width: 150px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(255, 99, 71);
+  font-size: 15px;
+  font-weight: 700;
 }

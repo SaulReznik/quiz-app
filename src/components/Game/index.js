@@ -23,7 +23,7 @@ function shuffle(array) {
     return array;
 }
 
-let clickedButtonIndex;
+let clickedButtonIndex = null;
 
 const Game = props =>{
     const { question } = props;
@@ -31,14 +31,18 @@ const Game = props =>{
 
     const changeColor = (isCorrect, index) => {
         clickedButtonIndex = index;
+
+        //Get the button that was clicked
         let el = document.getElementById(`btn${index}`);
 
+        //If it was correct color it green, otherwise red by adding the particular class
         if (isCorrect) {
             el.classList.add('green-background');
         } else {
             el.classList.add('red-background');
         }
 
+        //Wait 0.5 seconds, then clear the clickedButton and remove the added class
         setTimeout(() => {
             clickedButtonIndex = null;
             el.classList.remove(isCorrect ? 'green-background' : 'red-background')

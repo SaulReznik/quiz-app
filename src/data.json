@@ -1,6 +1,5 @@
 [
     {
-        "id": 0,
         "question": "What is the capital of the USA",
         "options": [
             {
@@ -22,7 +21,6 @@
         ]
     },
     {
-        "id": 1,
         "question": "Which is the largest country in the world",
         "options": [
             {
@@ -44,7 +42,6 @@
         ]
     },
     {
-        "id": 2,
         "question": "For what invention Alfred Nobel become famous",
         "options": [
             {
@@ -66,7 +63,6 @@
         ]
     },
     {
-        "id": 3,
         "question": "What is the longest river in the world",
         "options": [
             {
@@ -88,7 +84,6 @@
         ]
     },
     {
-        "id": 4,
         "question": "Yakudza is a big criminal organization from ...",
         "options": [
             {
@@ -110,7 +105,6 @@
         ]
     },
     {
-        "id": 5,
         "question": "What famous gas is formed from only 3 atoms of Oxygen",
         "options": [
             {
@@ -132,7 +126,6 @@
         ]
     },
     {
-        "id": 6,
         "question": "Which of this planets is not a gas planet",
         "options": [
             {
@@ -154,7 +147,6 @@
         ]
     },
     {
-        "id": 7,
         "question": "How long is the light year in a kilometers",
         "options": [
             {
@@ -176,7 +168,6 @@
         ]
     },
     {
-        "id": 8,
         "question": "What state is not located in the USA",
         "options": [
             {
@@ -198,7 +189,6 @@
         ]
     },
     {
-        "id": 9,
         "question": "What is the bigest organ in human body",
         "options": [
             {
@@ -220,7 +210,6 @@
         ]
     },
     {
-        "id": 10,
         "question": "Which of this musicians is not died in the age of 27",
         "options": [
             {
@@ -242,7 +231,6 @@
         ]
     },
     {
-        "id": 11,
         "question": "What is the most distant man-made object from Earth",
         "options": [
             {
@@ -264,7 +252,6 @@
         ]
     },
     {
-        "id": 12,
         "question": "What is the capital of California",
         "options": [
             {
@@ -282,6 +269,69 @@
             {
                 "text": "Sacramento",
                 "isCorrect": true
+            }
+        ]
+    },
+    {
+        "question": "What is the height of the tallest building in the world in meters",
+        "options": [
+            {
+                "text": "698",
+                "isCorrect": false
+            },
+            {
+                "text": "1024",
+                "isCorrect": false
+            },
+            {
+                "text": "921",
+                "isCorrect": false
+            },
+            {
+                "text": "828",
+                "isCorrect": true
+            }
+        ]
+    },
+    {
+        "question": "Benjamin Franklin is on the ... dollar bill",
+        "options": [
+            {
+                "text": "100",
+                "isCorrect": true
+            },
+            {
+                "text": "1",
+                "isCorrect": false
+            },
+            {
+                "text": "50",
+                "isCorrect": false
+            },
+            {
+                "text": "20",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "What is the biggest inner sea in the world",
+        "options": [
+            {
+                "text": "Caspian",
+                "isCorrect": true
+            },
+            {
+                "text": "Black",
+                "isCorrect": false
+            },
+            {
+                "text": "Mediterranean",
+                "isCorrect": false
+            },
+            {
+                "text": "Yellow",
+                "isCorrect": false
             }
         ]
     }
